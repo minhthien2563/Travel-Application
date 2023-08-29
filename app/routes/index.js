@@ -1,3 +1,9 @@
 export default {
-  Onboarding: 'Onboarding Screen',
+  Onboarding: 'Onboarding',
+  Login: 'Login',
+
+  Main: 'Main',
+
+  Home: 'Home',
+  Explore: 'Explore',
 };
