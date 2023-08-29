@@ -11,15 +11,17 @@ import React, {useState} from 'react';
 import IconLocation from 'react-native-vector-icons/Entypo';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import colors from '../../../assets/js/colors';
-import Explore from './Explore';
+import Explore from './Explore/Explore';
 import routes from '../../routes';
-import Flights from './Flights';
+import Flights from './Flights/Flights';
+import Hotels from './Hotels/Hotels';
+import TravelAgency from './TravelAgency/TravelAgency';
 
 const Home = () => {
   const [currentScreen, setCurrentScreen] = useState(routes.Explore);
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: '#FBFEFF'}}>
       <View style={styles.container}>
         <View style={styles.location}>
           <Text style={{color: 'black'}}>Ho Chi Minh City, Vietnam</Text>
@@ -57,7 +59,15 @@ const Home = () => {
         />
       </View>
 
-      {currentScreen === routes.Explore ? <Explore /> : <Flights />}
+      {currentScreen === routes.Explore ? (
+        <Explore />
+      ) : currentScreen === routes.Flights ? (
+        <Flights />
+      ) : currentScreen === routes.Hotels ? (
+        <Hotels />
+      ) : (
+        <TravelAgency />
+      )}
     </SafeAreaView>
   );
 };
@@ -68,7 +78,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 20,
 
-    backgroundColor: 'white',
+    backgroundColor: colors.background,
   },
   location: {
     flexDirection: 'row',

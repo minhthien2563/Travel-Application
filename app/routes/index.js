@@ -6,4 +6,7 @@ export default {
 
   Home: 'Home',
   Explore: 'Explore',
+  Flights: 'Flights',
+  Hotels: 'Hotels',
+  TravelAgency: 'Travel Agency',
 };

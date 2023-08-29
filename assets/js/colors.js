@@ -1,5 +1,8 @@
 export default {
-  primary: '#2db4f2',
+  background: '#F7FBFE',
+  container: '#FFFEFE',
+
+  primary: '#1E65E5',
   primary_light: '#d6f2ff',
 
   grey: '#454A53',
