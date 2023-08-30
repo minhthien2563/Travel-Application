@@ -19,7 +19,11 @@ const Hotels = () => {
       </View>
 
       <FlatList
-        style={{flex: 1, paddingHorizontal: 20}}
+        style={{
+          flex: 1,
+          paddingHorizontal: 20,
+          backgroundColor: colors.background,
+        }}
         data={hotel}
         numColumns={2}
         renderItem={({item}) => <HotelItem item={item} />}
@@ -33,6 +37,7 @@ export default Hotels;
 const styles = StyleSheet.create({
   header: {
     padding: 20,
+    backgroundColor: colors.background,
   },
   headerText: {
     flexDirection: 'row',
