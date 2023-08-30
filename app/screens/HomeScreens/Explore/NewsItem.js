@@ -1,4 +1,4 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 import colors from '../../../../assets/js/colors';
 
@@ -7,7 +7,7 @@ const NewsItem = ({item}) => {
     const words = text.split(' ');
     if (words.length > limit) {
       return (
-        words.slice(0, limit).join(' ') + (words.length > limit ? ' ...' : '')
+        words.slice(0, limit).join(' ') + (words.length > limit ? '...' : '')
       );
     } else {
       return text;
@@ -15,7 +15,7 @@ const NewsItem = ({item}) => {
   };
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <Image
         source={{
           uri: item.image,
@@ -26,7 +26,7 @@ const NewsItem = ({item}) => {
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.subTitle}>{limitWords(item.subtitle, 15)}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

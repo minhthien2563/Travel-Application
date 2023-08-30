@@ -1,18 +1,35 @@
 import {Image, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Icon from 'react-native-vector-icons/AntDesign';
 import colors from '../../../../assets/js/colors';
+import {useNavigation} from '@react-navigation/native';
+import routes from '../../../routes';
 
 const TravelItem = ({item}) => {
+  const navigation = useNavigation();
+  const [liked, setLiked] = useState(false);
+  const [iconHeart, setIconHeart] = useState('hearto');
+
+  useEffect(() => {
+    if (liked) setIconHeart('heart');
+    else setIconHeart('hearto');
+  });
+
+  const handleLike = () => {
+    if (liked) setLiked(false);
+    else setLiked(true);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.centerRow}>
         <Image
           source={{
-            uri: 'https://img.freepik.com/free-vector/detailed-travel-logo_23-2148616611.jpg',
+            uri: 'https://seeklogo.com/images/B/beach-tour-logo-4505456896-seeklogo.com.png',
           }}
-          width={100}
-          height={100}
+          width={70}
+          height={65}
+          style={{margin: 15}}
         />
         <View>
           <Text style={styles.name}>{item.name}</Text>
@@ -41,13 +58,13 @@ const TravelItem = ({item}) => {
             height={35}
             style={styles.imageLiked}
           />
-          <Text style={styles.numberLikes}>+{item.likes}</Text>
+          <Text style={styles.numberLikes}>+{item.likes - 2}</Text>
           <Text style={{fontWeight: '500'}}>Liked This</Text>
         </View>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleLike}>
           <Icon
-            name={'hearto'}
+            name={iconHeart}
             size={20}
             color={'#FD433E'}
             style={{padding: 20}}
@@ -55,7 +72,9 @@ const TravelItem = ({item}) => {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={styles.detailBtn}>
+      <TouchableOpacity
+        style={styles.detailBtn}
+        onPress={() => navigation.navigate(routes.TravelDetail, {item})}>
         <Text style={{fontWeight: 'bold', color: 'white'}}>Details</Text>
       </TouchableOpacity>
     </View>

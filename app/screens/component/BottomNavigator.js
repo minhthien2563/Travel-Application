@@ -6,6 +6,9 @@ import routes from '../../routes';
 import Home from '../HomeScreens/Home';
 import Flights from '../HomeScreens/Flights/Flights';
 import colors from '../../../assets/js/colors';
+import Favourite from '../FavouriteScreens/Favourite';
+import Account from '../AccountScreens/Account';
+import Transaction from '../TransactionScreen/Transaction';
 
 const Tab = createBottomTabNavigator();
 const BottomNavigator = () => {
@@ -28,17 +31,17 @@ const BottomNavigator = () => {
         },
         tabBarActiveTintColor: 'white',
         tabBarActiveBackgroundColor: colors.primary,
-        tabBarInactiveTintColor: 'black',
+        tabBarInactiveTintColor: colors.grey,
         tabBarIcon: ({color}) => {
           let iconName;
 
           if (route.name === routes.Home) {
             iconName = 'home';
-          } else if (route.name === 'Flights') {
+          } else if (route.name === routes.Favourite) {
             iconName = 'heart';
-          } else if (route.name === 'Test') {
+          } else if (route.name === routes.Transaction) {
             iconName = 'page-multiple';
-          } else if (route.name === 'Test2') {
+          } else if (route.name === routes.Account) {
             iconName = 'torso';
           }
 
@@ -46,25 +49,25 @@ const BottomNavigator = () => {
         },
       })}>
       <Tab.Screen
-        name="Home"
+        name={routes.Home}
         component={Home}
         options={({route}) => ({
           headerShown: false,
         })}
       />
       <Tab.Screen
-        name="Flights"
-        component={Flights}
+        name={routes.Favourite}
+        component={Favourite}
         options={{headerShown: false}}
       />
       <Tab.Screen
-        name="Test"
-        component={Flights}
+        name={routes.Transaction}
+        component={Transaction}
         options={{headerShown: false}}
       />
       <Tab.Screen
-        name="Test2"
-        component={Flights}
+        name={routes.Account}
+        component={Account}
         options={{headerShown: false}}
       />
     </Tab.Navigator>

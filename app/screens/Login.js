@@ -12,6 +12,7 @@ import colors from '../../assets/js/colors';
 import IconMail from 'react-native-vector-icons/Entypo';
 import IconFacebook from 'react-native-vector-icons/MaterialIcons';
 import IconGoogle from 'react-native-vector-icons/AntDesign';
+import {rowCenter} from '../../assets/js/styles';
 
 const Login = () => {
   return (
@@ -19,7 +20,7 @@ const Login = () => {
       <Text style={styles.logo}>TravelX</Text>
 
       <Text style={styles.header}>Sign in</Text>
-      <View style={styles.input}>
+      <View style={[styles.input, rowCenter]}>
         <IconMail name="mail" size={20} />
         <TextInput
           placeholder={'Enter e-mail address'}
@@ -82,9 +83,6 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
   },
   input: {
-    flexDirection: 'row',
-    alignItems: 'center',
-
     paddingHorizontal: 20,
 
     borderWidth: 1,

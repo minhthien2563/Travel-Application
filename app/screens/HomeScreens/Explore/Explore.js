@@ -6,7 +6,7 @@ import colors from '../../../../assets/js/colors';
 
 const Explore = () => {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Popular />
       <News />
     </ScrollView>

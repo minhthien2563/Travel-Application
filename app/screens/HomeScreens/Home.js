@@ -7,15 +7,17 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import IconLocation from 'react-native-vector-icons/Entypo';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
 import colors from '../../../assets/js/colors';
 import Explore from './Explore/Explore';
 import routes from '../../routes';
 import Flights from './Flights/Flights';
 import Hotels from './Hotels/Hotels';
 import TravelAgency from './TravelAgency/TravelAgency';
+import {rowCenter} from '../../../assets/js/styles';
 
 const Home = () => {
   const [currentScreen, setCurrentScreen] = useState(routes.Explore);
@@ -28,17 +30,13 @@ const Home = () => {
           <IconLocation name="location-pin" size={20} color={'black'} />
         </View>
 
-        <View style={styles.search}>
+        <View style={[styles.search, rowCenter]}>
           <View style={styles.searchInput}>
             <TextInput
               placeholder="Search"
               style={styles.searchInputText}></TextInput>
             <Icon name="search" size={20} color={'black'}></Icon>
           </View>
-
-          <TouchableOpacity>
-            <Icon name="filter" size={20} color={'black'}></Icon>
-          </TouchableOpacity>
         </View>
 
         <FlatList
@@ -50,7 +48,15 @@ const Home = () => {
           ]}
           renderItem={({item}) => (
             <TouchableOpacity onPress={() => setCurrentScreen(item.key)}>
-              <Text style={styles.topNavigatorText}>{item.key}</Text>
+              <Text
+                style={[
+                  styles.topNavigatorText,
+                  currentScreen === item.key
+                    ? styles.activeScreen
+                    : styles.unActiveScreen,
+                ]}>
+                {item.key}
+              </Text>
             </TouchableOpacity>
           )}
           horizontal
@@ -87,9 +93,6 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   search: {
-    flexDirection: 'row',
-
-    alignItems: 'center',
     marginBottom: 20,
   },
   searchInput: {
@@ -99,7 +102,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
 
-    marginRight: 10,
     borderRadius: 20,
   },
   searchInputText: {
@@ -109,8 +111,13 @@ const styles = StyleSheet.create({
   topNavigatorText: {
     paddingHorizontal: 20,
     textAlign: 'center',
-    color: colors.grey,
     fontWeight: 'bold',
+  },
+  activeScreen: {
+    color: colors.primary,
+  },
+  unActiveScreen: {
+    color: colors.grey,
   },
   bottomNavigator: {
     position: 'absolute',

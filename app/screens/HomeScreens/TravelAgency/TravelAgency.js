@@ -10,6 +10,7 @@ const TravelAgency = () => {
       <FlatList
         data={Travel}
         renderItem={({item}) => <TravelItem item={item} />}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );
