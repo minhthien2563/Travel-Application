@@ -1,7 +1,6 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import colors from '../../../../assets/js/colors';
-import {limitWords} from '../../../assets/js/function';
 
 const NewsItem = ({item}) => {
   const limitWords = (text, limit) => {
@@ -35,8 +34,12 @@ export default NewsItem;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    backgroundColor: colors.container,
     flexDirection: 'row',
+    padding: 20,
+    marginHorizontal: 20,
+    marginVertical: 10,
+    borderRadius: 20,
   },
   image: {
     borderRadius: 20,
