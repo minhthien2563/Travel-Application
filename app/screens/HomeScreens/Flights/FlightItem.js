@@ -56,20 +56,10 @@ export default FlightItem;
 const styles = StyleSheet.create({
   container: {
     borderRadius: 20,
-    marginVertical: 20,
+    marginVertical: 10,
     padding: 20,
 
     backgroundColor: colors.container,
-
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 2,
-      height: 2,
-    },
-    shadowOpacity: 0,
-    shadowRadius: 1.41,
-
-    elevation: 1,
   },
   boldText: {
     fontWeight: 'bold',
