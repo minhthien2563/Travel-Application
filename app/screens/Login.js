@@ -13,8 +13,11 @@ import IconMail from 'react-native-vector-icons/Entypo';
 import IconFacebook from 'react-native-vector-icons/MaterialIcons';
 import IconGoogle from 'react-native-vector-icons/AntDesign';
 import {rowCenter} from '../../assets/js/styles';
+import {useNavigation} from '@react-navigation/native';
+import routes from '../routes';
 
 const Login = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.logo}>TravelX</Text>
@@ -34,6 +37,7 @@ const Login = () => {
         </Text>
 
         <TouchableOpacity
+          onPress={() => navigation.navigate(routes.Main)}
           style={[styles.loginExtra, {backgroundColor: colors.google}]}>
           <IconGoogle
             name="google"
@@ -44,6 +48,7 @@ const Login = () => {
         </TouchableOpacity>
 
         <TouchableOpacity
+          onPress={() => navigation.navigate(routes.Main)}
           style={[styles.loginExtra, {backgroundColor: colors.facebook}]}>
           <IconFacebook
             name="facebook"
