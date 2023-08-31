@@ -9,41 +9,43 @@ import {
 import React, {useState} from 'react';
 import {rowCenter} from '../../../assets/js/styles';
 import colors from '../../../assets/js/colors';
-import {flight} from '../../../assets/js/flights';
-import TransactionItem from './TransactionItem';
+import FlightsTransaction from './FlightsTransaction';
+import HotelsTransaction from './HotelsTransaction';
 
 const Transaction = () => {
-  const [type, setType] = useState('Upcoming');
+  const [rightActive, setRightActive] = useState(false);
   return (
     <SafeAreaView style={styles.container}>
+      <Text style={styles.topHeader}>My transaction</Text>
       <View style={[rowCenter, styles.containerButton]}>
         <TouchableOpacity
+          onPress={() => setRightActive(false)}
           style={[
             styles.button,
-            type === 'Upcoming' ? styles.activeButton : null,
+            rightActive === false ? styles.activeButton : null,
           ]}>
           <Text
             style={
-              type === 'Upcoming' ? styles.activeText : styles.unActiveText
+              rightActive === false ? styles.activeText : styles.unActiveText
             }>
-            Upcoming
+            Flights
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
+          onPress={() => setRightActive(true)}
           style={[
             styles.button,
-            type === 'Archive' ? styles.activeButton : null,
+            rightActive === true ? styles.activeButton : null,
           ]}>
           <Text
             style={
-              type === 'Archive' ? styles.activeText : styles.unActiveText
+              rightActive === true ? styles.activeText : styles.unActiveText
             }>
-            Archive
+            Hotels
           </Text>
         </TouchableOpacity>
       </View>
-
-      <FlatList Data={flight} renderItem={({item}) => <TransactionItem />} />
+      {rightActive === false ? <FlightsTransaction /> : <HotelsTransaction />}
     </SafeAreaView>
   );
 };
@@ -54,6 +56,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+
+    backgroundColor: colors.background,
+  },
+  topHeader: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    textAlign: 'center',
+    color: 'black',
+    marginBottom: 10,
   },
   containerButton: {
     backgroundColor: colors.primary,

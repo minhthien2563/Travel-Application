@@ -18,7 +18,6 @@ const Popular = () => {
         </View>
       </View>
       <FlatList
-        style={styles.carousel}
         data={ENTRIES1}
         renderItem={({item}) => <CarouselItem item={item} />}
         horizontal
@@ -52,8 +51,5 @@ const styles = StyleSheet.create({
   headerBtnText: {
     fontWeight: 'bold',
     color: colors.primary,
-  },
-  carousel: {
-    paddingLeft: 20,
   },
 });

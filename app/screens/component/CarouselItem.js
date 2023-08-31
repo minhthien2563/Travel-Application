@@ -21,7 +21,7 @@ export default CarouselItem;
 
 const styles = StyleSheet.create({
   container: {
-    marginRight: 20,
+    marginHorizontal: 10,
   },
   image: {
     borderRadius: 40,
