@@ -33,7 +33,7 @@ const TravelItem = ({item}) => {
         />
         <View>
           <Text style={styles.name}>{item.name}</Text>
-          <View style={{flexDirection: 'row'}}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Icon name="star" size={15} color={'#FAB205'} style={styles.star} />
             <Text style={styles.ratingText}>{item.rating}</Text>
           </View>
@@ -41,7 +41,7 @@ const TravelItem = ({item}) => {
       </View>
 
       <View style={styles.centerRow}>
-        <View style={[styles.centerRow, {flex: 1, padding: 20}]}>
+        <View style={[styles.centerRow, {flex: 0.9, padding: 20}]}>
           <Image
             source={{
               uri: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg',
@@ -62,13 +62,8 @@ const TravelItem = ({item}) => {
           <Text style={{fontWeight: '500'}}>Liked This</Text>
         </View>
 
-        <TouchableOpacity onPress={handleLike}>
-          <Icon
-            name={iconHeart}
-            size={20}
-            color={'#FD433E'}
-            style={{padding: 20}}
-          />
+        <TouchableOpacity style={{flex: 0.15}} onPress={handleLike}>
+          <Icon name={iconHeart} size={20} color={'#FD433E'} />
         </TouchableOpacity>
       </View>
 

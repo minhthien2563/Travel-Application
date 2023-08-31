@@ -27,16 +27,16 @@ const FavouriteItem = ({item}) => {
           height={65}
           style={{margin: 15}}
         />
-        <View style={{width: 240}}>
+        <View style={{flex: 1}}>
           <Text style={styles.name}>{item.name}</Text>
-          <View style={{flexDirection: 'row'}}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Icon name="star" size={15} color={'#FAB205'} style={styles.star} />
             <Text style={styles.ratingText}>{item.rating}</Text>
           </View>
           <Text>{limitWords(item.description, 8)}</Text>
         </View>
-        <TouchableOpacity>
-          <Icon name="heart" size={15} color={'#FD433E'}></Icon>
+        <TouchableOpacity style={{flex: 0.2}}>
+          <Icon name="heart" size={20} color={'#FD433E'}></Icon>
         </TouchableOpacity>
       </View>
     </View>
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: colors.container,
     marginBottom: 20,
+    padding: 10,
   },
   centerRow: {
     flexDirection: 'row',
@@ -68,5 +69,6 @@ const styles = StyleSheet.create({
   },
   ratingText: {
     fontWeight: 'bold',
+    flex: 1,
   },
 });

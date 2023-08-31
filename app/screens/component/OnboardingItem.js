@@ -51,5 +51,6 @@ const styles = StyleSheet.create({
   },
   bottomContent: {
     color: 'grey',
+    padding: 20,
   },
 });

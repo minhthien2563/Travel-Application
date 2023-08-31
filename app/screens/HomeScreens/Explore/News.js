@@ -44,14 +44,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   mainHeader: {
-    flex: 0.85,
+    flex: 1,
 
     fontSize: 20,
     fontWeight: 'bold',
     color: 'black',
   },
   headerBtn: {
-    flex: 0.15,
+    flex: 0.3,
     flexDirection: 'row',
     alignItems: 'center',
   },

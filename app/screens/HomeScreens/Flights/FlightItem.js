@@ -100,7 +100,6 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     backgroundColor: colors.primary,
     borderRadius: 15,
-    width: '20%',
     alignItems: 'center',
     marginVertical: 10,
   },
